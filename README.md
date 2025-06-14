@@ -1,10 +1,10 @@
 # Module CRUD Client - Application WPF
 
 ## Description
+Ce module permet de gérer les clients (ajout, consultation, modification, suppression) dans une application WPF. L’interface graphique est définie dans `Client.xaml` et la logique dans `Client.xaml.cs`.
 
 ## Apercu
 ![Aperçu de l'application](./image.png)
-Ce module permet de gérer les clients (ajout, consultation, modification, suppression) dans une application WPF. L’interface graphique est définie dans `Client.xaml` et la logique dans `Client.xaml.cs`.
 
 ## Fonctionnalités
 

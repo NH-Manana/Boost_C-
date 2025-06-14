@@ -1,0 +1,237 @@
+﻿<Window x:Class="GVP.Views.MenuPneu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GVP.Views"
+        xmlns:uc="clr-namespace:GVP.UserControls"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="MenuPneu"
+        Icon="pack://application:,,,/Views/assets/iconT2.ico"
+        Height="990"
+        Width="1480"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" Background="{x:Null}" BorderBrush="#FF002E2C" BorderThickness="0,0,3,10">
+
+    <Window.Resources>
+        <Style x:Key="BoutonConstant" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--Menu-->
+        <Storyboard x:Key="menuopen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="DockMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="menuclose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="DockMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <!--Notification MenuPneu-->
+        <Storyboard x:Key="view_notify_open">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="Notify_menu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="200"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="view_notify_close">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="Notify_menu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <!--ShadowEffect User_small_menu-->
+        <DropShadowEffect x:Key="myShadow"
+                      Color="Black"
+                      BlurRadius="20"
+                      ShadowDepth="0"
+                      Direction="180"
+                      Opacity="0.3"/>
+
+        <!--User_small_menu-->
+        <Storyboard x:Key="fadeInUserMenu">
+            <DoubleAnimation Duration="0:0:0.1" From="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="User_menu"/>
+        </Storyboard>
+
+        <Storyboard x:Key="fadeOutUserMenu">
+            <DoubleAnimation Duration="0:0:0.1" From="1" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="User_menu"/>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_Menu_O">
+            <BeginStoryboard Storyboard="{StaticResource menuopen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_Menu_C">
+            <BeginStoryboard Storyboard="{StaticResource menuclose}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_notify_O">
+            <BeginStoryboard Storyboard="{StaticResource view_notify_open}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btn_notify_C">
+            <BeginStoryboard Storyboard="{StaticResource view_notify_close}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid PreviewMouseDown="Grid_PreviewMouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="104*"/>
+            <RowDefinition Height="81*"/>
+        </Grid.RowDefinitions>
+
+        <Canvas Background="#BF002E2C" Grid.Row="0">
+            <Image Height="161" Width="1480" Source="/Views/assets/style wavy (2).png" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="Fill"/>
+            <Button x:Name="btn_min" Content="➖" FontSize="16" Style="{StaticResource BoutonConstant}" Canvas.Left="1394" Canvas.Top="10" Height="31" Width="34" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btn_min_Click"/>
+            <Button x:Name="btn_quit" Content="✖️" FontSize="16" Style="{StaticResource BoutonConstant}" Canvas.Left="1436" Canvas.Top="10" Height="31" Width="34" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Click="btn_quit_Click"/>
+            <Image Height="125" Canvas.Left="4" Width="196" Source="/Views/assets/R-removebg.png" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label x:Name="lb_time_d" Content="24 : 00" Canvas.Top="166" Height="37" Width="97" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="1.033,0.541" FontSize="26" FontFamily="Century Gothic" FontWeight="Bold" Canvas.Left="10"/>
+            <Label x:Name="lb_date_d" Content="Mercredi 10 Juin 2024" Canvas.Top="212" Height="37" Width="186" Foreground="White" RenderTransformOrigin="1.033,0.541" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" FontSize="16" Canvas.Left="4"/>
+            <Button x:Name="btn_user" fa:Awesome.Content="User" FontSize="22" Style="{StaticResource BoutonConstant}" Canvas.Left="1381" Canvas.Top="205" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" Foreground="#FFAAAAAA" BorderBrush="#FFAAAAAA" MouseEnter="btn_user_MouseEnter" MouseLeave="btn_user_MouseLeave" Width="47" BorderThickness="0,0,2,0" Height="29" Click="btn_user_Click"/>
+            <Button x:Name="btn_notify_O" fa:Awesome.Content="Bell" FontSize="20" Style="{StaticResource BoutonConstant}" Canvas.Left="1433" Canvas.Top="205" HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}" Foreground="#FFAAAAAA" BorderBrush="{x:Null}" MouseEnter="btn_notify_O_MouseEnter" MouseLeave="btn_notify_O_MouseLeave" Height="28" Width="37" Click="btn_notify_O_Click"/>
+            <Button x:Name="btn_notify_C" fa:Awesome.Content="Bell" FontSize="20" Style="{StaticResource BoutonConstant}" Visibility="Collapsed" Canvas.Left="1433" Canvas.Top="205" HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}" Foreground="#FFAAAAAA" BorderBrush="{x:Null}" MouseEnter="btn_notify_C_MouseEnter" MouseLeave="btn_notify_C_MouseLeave" Height="28" Width="37" Click="btn_notify_C_Click"/>
+
+        </Canvas>
+        <Rectangle HorizontalAlignment="Center" Height="6" Margin="0,160,0,0" Stroke="Black" VerticalAlignment="Top" Width="1480" Fill="#FFADA36B"/>
+
+        <Canvas Grid.Row="1" Margin="0,0,1445,0" Background="#FF002E2C" Grid.RowSpan="2">
+            <Button x:Name="btn_Menu_O" Content="Menu"  Style="{StaticResource BoutonConstant}" Canvas.Top="37" HorizontalAlignment="Center" Height="31" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFAAAAAA" FontSize="14" BorderThickness="0,0,0,0" Width="66" MouseEnter="btn_Menu_O_MouseEnter" MouseLeave="btn_Menu_O_MouseLeave" Click="btn_Menu_O_Click" RenderTransformOrigin="0.5,0.5" Canvas.Left="-17" FontFamily="Century Gothic">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="btn_Menu_C" Content="Menu" Style="{StaticResource BoutonConstant}" Canvas.Top="37" HorizontalAlignment="Center" Height="31" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFB2B2B2" FontSize="14" BorderThickness="0,0,0,0" Width="66" Click="btn_Menu_C_Click" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5" Canvas.Left="-17" MouseEnter="btn_Menu_C_MouseEnter" MouseLeave="btn_Menu_C_MouseLeave" FontFamily="Century Gothic">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Rectangle x:Name="btn_Menu_r" Height="39" Stroke="Black" Canvas.Top="34" Width="5" HorizontalAlignment="Center" VerticalAlignment="Top" Fill="#FFAAAAAA" StrokeThickness="0"/>
+        </Canvas>
+
+        <!--Dock MenuPneu-->
+        <Border x:Name="DockMenu" Grid.Row="1" BorderBrush="#7FADA36B" BorderThickness="0,0,10,0" Width="0" HorizontalAlignment="Left" Grid.RowSpan="2">
+            <DockPanel Grid.Row="1" HorizontalAlignment="Left" Margin="30 0 0 0">
+                <ListBox DockPanel.Dock="Left" SelectionChanged="ListBox_SelectionChanged"  Width="200" Background="#FF002E2C" BorderThickness="1,0,0,0" Padding="0 25 0 0" BorderBrush="#FF5E5E5E" Foreground="White">
+                    <ListBox.Resources>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Padding" Value="60 10 70 10"/>
+                            <Setter Property="Margin" Value="3 0 0 0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Left"
+                                              VerticalAlignment="Center"
+                                              Margin="{TemplateBinding Padding}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="#345755"/>
+                                                <Setter TargetName="Border" Property="BorderBrush" Value="#002e2c"/>
+                                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="#345755"/>
+                                                <Setter TargetName="Border" Property="BorderBrush" Value="#002e2c"/>
+                                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.Resources>
+
+                    <ListBoxItem HorizontalAlignment="Left" Padding="30 10 100 10" Margin="3 0 0 0" Content="🏚 Accueil"/>
+                    <ListBoxItem HorizontalAlignment="Left" Padding="30 10 107 10" Margin="3 0 0 0" Content="👤 Client"/>
+                    <ListBoxItem HorizontalAlignment="Left" Padding="30 10 102 10" Margin="3 0 0 0" Content="🚗 Livreur"/>
+                    <ListBoxItem HorizontalAlignment="Left" Padding="30 10 76 10" Margin="3 0 0 0" Content="🏭 Fournisseur"/>
+                    <ListBoxItem HorizontalAlignment="Left" Padding="30 10 111 10" Margin="3 0 0 0" Content="🛞 Pneu"/>
+                    <ListBoxItem HorizontalAlignment="Left" Padding="30 10 77 10" Margin="3 0 0 0" Content="📈 Statistiques"/>
+                </ListBox>
+                <Grid>
+                    <!-- Le contenu principal de la fenêtre va ici -->
+                </Grid>
+            </DockPanel>
+        </Border>
+
+        <!--Notification frame-->
+        <DockPanel x:Name="Notify_menu" Grid.Row="1" HorizontalAlignment="Right" Margin="0 0 0 0" Width="0" Grid.RowSpan="2">
+            <ListBox DockPanel.Dock="Right" Width="200" Background="#FF002E2C" BorderThickness="1,0,0,0" BorderBrush="#FF5E5E5E" Foreground="White">
+                <Label Content="Notifications" Foreground="White" FontFamily="Century Gothic" FontSize="16"/>
+            </ListBox>
+            <Grid>
+                <!-- Le contenu principal de la fenêtre va ici -->
+            </Grid>
+        </DockPanel>
+
+        <Rectangle HorizontalAlignment="Center" Height="6" Margin="0,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="1480" Fill="#FFADA36B"/>
+        <Button fa:Awesome.Content="Cog" FontSize="24" Style="{StaticResource BoutonConstant}" HorizontalAlignment="Left" Margin="0,281,0,0" Grid.Row="2" VerticalAlignment="Top" Width="30" Height="33" Foreground="#FFAAAAAA" BorderThickness="0,0,0,0" BorderBrush="{x:Null}" Background="{x:Null}"/>
+
+        <!--User_menu_s:display-->
+        <Border x:Name="User_menu" CornerRadius="20" Effect="{StaticResource myShadow}" Opacity="0" Margin="1102,5,52,122"  BorderThickness="1" Grid.Row="1">
+            <Border.Background>
+                <SolidColorBrush Color="White"/>
+            </Border.Background>
+            <Grid>
+                <Border Width="103" Height="103" BorderBrush="Black" BorderThickness="3" CornerRadius="100" Margin="111,9,111,137">
+                    <Ellipse Width="100" Height="100">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Views/assets/vecteezy_full-moon-in-night-sky-with-stars-above-pond_15117593.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+                <Label Content="Label" HorizontalAlignment="Center" Margin="0,140,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Width="51"/>
+                <Button Content="Se déconnecter" Height="30" Style="{StaticResource BoutonConstant}" Margin="52,209,52,10" BorderBrush="#FF013378" Background="{x:Null}"/>
+            </Grid>
+        </Border>
+
+        <!--Popup Quit App-->
+        <Grid x:Name="darkBg" Background="#AA000000" Visibility="Collapsed" Grid.Row="0" Grid.RowSpan="3">
+            <uc:QuitPopup x:Name="quitPop" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
+        <!--Main Frame-->
+        <Frame x:Name="mainFrame" Source="/Views/Client.xaml" Grid.Row="1" Panel.ZIndex="-1" NavigationUIVisibility="Hidden" Margin="30,0,0,0" Grid.RowSpan="2"/>
+    </Grid>
+
+
+</Window>

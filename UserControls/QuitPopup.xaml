@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="GVP.UserControls.QuitPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GVP.UserControls"
+             mc:Ignorable="d" 
+             Height="250"
+             Width="600">
+    <UserControl.Resources>
+        <Style x:Key="BoutonConstant" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Views/assets/vecteezy_modern-curve-background_34084556.jpg"/>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="220" Margin="10,10,0,0" VerticalAlignment="Top" Width="228" Source="/Views/assets/michelin-bibendum-le-pneu-removebg-preview.png"/>
+        <Label Content="Voulez-vous vraiment quitter ?" HorizontalAlignment="Left" Margin="300,40,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" Height="31"/>
+        <Button x:Name="btn_quit_y" Content="Oui" Style="{StaticResource BoutonConstant}" HorizontalAlignment="Left" Margin="513,211,0,0" VerticalAlignment="Top" BorderBrush="#FFA2A77F" Background="#FF002E2C" Foreground="White" FontFamily="Century Gothic" FontSize="12" Height="29" Width="77" Click="btn_quit_y_Click"/>
+        <Button x:Name="btn_quit_n" Content="Non" Style="{StaticResource BoutonConstant}" HorizontalAlignment="Left" Margin="424,211,0,0" VerticalAlignment="Top" BorderBrush="#FFA2A77F" Background="#FF282A2B" Foreground="White" FontFamily="Century Gothic" FontSize="12" Height="29" Width="77" RenderTransformOrigin="0.082,0.439" Click="btn_quit_n_Click"/>
+    </Grid>
+</UserControl>

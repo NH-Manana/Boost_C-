@@ -1,0 +1,106 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UserControls\bg.jpg" />
+    <None Remove="UserControls\michelin-bibendum-le-pneu-removebg-preview.png" />
+    <None Remove="UserControls\michelin-bibendum-le-pneu.jpg" />
+    <None Remove="Views\a4kl3znk.png" />
+    <None Remove="Views\assets\icon1.ico" />
+    <None Remove="Views\assets\iconT.ico" />
+    <None Remove="Views\assets\iconT2.ico" />
+    <None Remove="Views\assets\tireIcon.ico" />
+    <None Remove="Views\bfgoodrich-log.png" />
+    <None Remove="Views\bg_abstr.png" />
+    <None Remove="Views\bridgestone_log.png" />
+    <None Remove="Views\Broom.png" />
+    <None Remove="Views\Capture d%27écran 2023-06-01 110225.png" />
+    <None Remove="Views\car_13650409.png" />
+    <None Remove="Views\car_13650409df.png" />
+    <None Remove="Views\continental_logo.png" />
+    <None Remove="Views\dss.png" />
+    <None Remove="Views\goodyear_log.png" />
+    <None Remove="Views\Hankook-Logo.png" />
+    <None Remove="Views\lassa-log.png" />
+    <None Remove="Views\lassa-logo.jpg" />
+    <None Remove="Views\Maxxis-logo.png" />
+    <None Remove="Views\michelin_log.png" />
+    <None Remove="Views\pirelli_logo.png" />
+    <None Remove="Views\place.png" />
+    <None Remove="Views\R-removebg.png" />
+    <None Remove="Views\Screenshot 2024-06-27 212902.png" />
+    <None Remove="Views\style wavy %281%29.png" />
+    <None Remove="Views\style wavy %282%29.png" />
+    <None Remove="Views\style wavy.png" />
+    <None Remove="Views\vecteezy_full-moon-in-night-sky-with-stars-above-pond_15117593.jpg" />
+    <None Remove="Views\vecteezy_modern-curve-background_34084556.jpg" />
+    <None Remove="Views\vector-OCT-2020-58_generated.jpg" />
+    <None Remove="Views\yokohama-logo.png" />
+    <None Remove="Views\zz-removebg-modified2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="NewFolder\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Startup\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="UserControls\bg.jpg" />
+    <Resource Include="Views\assets\a4kl3znk.png" />
+    <Resource Include="Views\assets\icon1.ico" />
+    <Resource Include="Views\assets\iconT.ico" />
+    <Resource Include="Views\assets\iconT2.ico" />
+    <Resource Include="Views\assets\michelin-bibendum-le-pneu-removebg-preview.png" />
+    <Resource Include="Views\assets\michelin-bibendum-le-pneu.jpg" />
+    <Resource Include="Views\assets\dss.png" />
+    <Resource Include="Views\assets\bfgoodrich-log.png" />
+    <Resource Include="Views\assets\bg_abstr.png" />
+    <Resource Include="Views\assets\bridgestone_log.png" />
+    <Resource Include="Views\assets\continental_logo.png" />
+    <Resource Include="Views\assets\goodyear_log.png" />
+    <Resource Include="Views\assets\Hankook-Logo.png" />
+    <Resource Include="Views\assets\lassa-log.png" />
+    <Resource Include="Views\assets\lassa-logo.jpg" />
+    <Resource Include="Views\assets\Maxxis-logo.png" />
+    <Resource Include="Views\assets\michelin_log.png" />
+    <Resource Include="Views\assets\pirelli_logo.png" />
+    <Resource Include="Views\assets\tireIcon.ico" />
+    <Resource Include="Views\assets\yokohama-logo.png" />
+    <Resource Include="Views\assets\place.png" />
+    <Resource Include="Views\assets\R-removebg.png" />
+    <Resource Include="Views\assets\Capture d%27écran 2023-06-01 110225.png" />
+    <Resource Include="Views\assets\Screenshot 2024-06-27 212902.png" />
+    <Resource Include="Views\assets\style wavy %281%29.png" />
+    <Resource Include="Views\assets\style wavy %282%29.png" />
+    <Resource Include="Views\assets\style wavy.png" />
+    <Resource Include="Views\assets\vecteezy_full-moon-in-night-sky-with-stars-above-pond_15117593.jpg" />
+    <Resource Include="Views\assets\vecteezy_modern-curve-background_34084556.jpg" />
+    <Resource Include="Views\assets\vector-OCT-2020-58_generated.jpg" />
+    <Resource Include="Views\assets\car_13650409df.png" />
+    <Resource Include="Views\assets\zz-removebg-modified2.png" />
+    <Resource Include="Views\assets\car_13650409.png" />
+    <Resource Include="Views\Broom.png" />
+  </ItemGroup>
+
+</Project>

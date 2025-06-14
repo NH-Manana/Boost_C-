@@ -1,0 +1,5 @@
+D:\TP\C#\GVP.exe
+D:\TP\C#\GVP.dll
+D:\TP\C#\GVP.deps.json
+D:\TP\C#\GVP.runtimeconfig.json
+D:\TP\C#\GVP.pdb

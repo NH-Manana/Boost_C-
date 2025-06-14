@@ -1,0 +1,33 @@
+﻿<Window x:Class="GVP.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GVP.Views"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="Login" Height="530" Width="900"
+        WindowStyle="None" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="179*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Views/assets/place.png" HorizontalAlignment="Left" Height="530" VerticalAlignment="Center" Width="480" Stretch="Fill"/>
+        <Label Content="Company" HorizontalAlignment="Left" VerticalAlignment="Top" FontStyle="Italic" FontFamily="Arial" FontWeight="Bold" Foreground="#FFE2E1E1" FontSize="28" Margin="10,10,0,0"/>
+        <Label Content="Se connecter" HorizontalAlignment="Left" Margin="509,58,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label Content="Bienvenue !" HorizontalAlignment="Left" Margin="509,21,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic"/>
+        <Label x:Name="lbNomLog" Content="Nom" HorizontalAlignment="Left" Margin="528,157,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="tbNomLogi" HorizontalAlignment="Left" Margin="533,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" BorderThickness="0,0,0,2" BorderBrush="#FF002E2C" Height="30" FontFamily="Century Gothic" FontSize="14"/>
+        <Label x:Name="lbPassLog" Content="Mot de passe" HorizontalAlignment="Left" Margin="530,246,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btnSignIn" Content="Vérifier" HorizontalAlignment="Left" Margin="530,431,0,0" VerticalAlignment="Top" Background="#FF353787" Foreground="White" Height="32" Width="324" FontSize="14" Click="btnSignIn_Click"/>
+        <Label x:Name="lbPassForget" Content="Mot de passe oubliée?" HorizontalAlignment="Left" Margin="687,399,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Foreground="#FF161CFF"/>
+        <Label x:Name="lbPassLog_Copy" Content="Vous n'avez pas encore de compte?" HorizontalAlignment="Left" Margin="528,468,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Width="261"/>
+        <Label x:Name="lbPassForget_Copy" Content="Créer-un" HorizontalAlignment="Left" Margin="782,468,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="14" Foreground="#FF161CFF" FontWeight="Bold" RenderTransformOrigin="0.15,1.085"/>
+        <PasswordBox x:Name="passbox" PasswordChanged="passbox_PasswordChanged"  HorizontalAlignment="Left" Margin="533,278,0,0" VerticalAlignment="Top" Width="318" Height="32" BorderThickness="0,0,0,2" BorderBrush="#FF353787"/>
+        <TextBox x:Name="tbPassLog" TextChanged="tbPassLog_TextChanged" HorizontalAlignment="Left" Margin="534,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" BorderThickness="0,0,0,2" BorderBrush="#FF002E2C" Height="30" FontFamily="Century Gothic" FontSize="14" Visibility="Collapsed"/>
+        <CheckBox x:Name="cbShowPass" Content="Afficher le mot de passe" HorizontalAlignment="Left" Margin="533,341,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Century Gothic" Checked="cbShowPass_Checked" Unchecked="cbShowPass_Unchecked"/>
+        <Button x:Name="btnClose_Log" fa:Awesome.Content="Close" FontSize="30" Margin="857,1,0,0" VerticalAlignment="Top" Height="37" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0,1,0,0" Click="btnClose_Log_Click" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
